@@ -50,6 +50,8 @@
         <anyline.version>8.7.2-20250101</anyline.version>
         <!-- 工作流配置 -->
         <warm-flow.version>1.7.3</warm-flow.version>
+        <!-- playwright配置 -->
+        <playwright.version>1.53.0</playwright.version>
 
         <!-- 插件版本 -->
         <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
@@ -325,6 +327,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.microsoft.playwright</groupId>
+                <artifactId>playwright</artifactId>
+                <version>${playwright.version}</version>
             </dependency>
 
             <dependency>
