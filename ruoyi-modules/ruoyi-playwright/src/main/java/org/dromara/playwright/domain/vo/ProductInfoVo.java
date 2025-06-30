@@ -1,17 +1,13 @@
-package org.dromara.system.domain.vo;
+package org.dromara.playwright.domain.vo;
 
-import org.dromara.system.domain.ProductInfo;
 import cn.idev.excel.annotation.ExcelIgnoreUnannotated;
 import cn.idev.excel.annotation.ExcelProperty;
-import org.dromara.common.excel.annotation.ExcelDictFormat;
-import org.dromara.common.excel.convert.ExcelDictConvert;
 import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
+import org.dromara.playwright.domain.ProductInfo;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
-
 
 
 /**

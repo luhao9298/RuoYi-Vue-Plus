@@ -1,9 +1,9 @@
-package org.dromara.system.service;
+package org.dromara.playwright.service;
 
-import org.dromara.system.domain.vo.ProductInfoVo;
-import org.dromara.system.domain.bo.ProductInfoBo;
-import org.dromara.common.mybatis.core.page.TableDataInfo;
 import org.dromara.common.mybatis.core.page.PageQuery;
+import org.dromara.common.mybatis.core.page.TableDataInfo;
+import org.dromara.playwright.domain.bo.ProductInfoBo;
+import org.dromara.playwright.domain.vo.ProductInfoVo;
 
 import java.util.Collection;
 import java.util.List;

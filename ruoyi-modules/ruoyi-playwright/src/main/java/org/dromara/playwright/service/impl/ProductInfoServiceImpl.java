@@ -1,24 +1,24 @@
-package org.dromara.system.service.impl;
+package org.dromara.playwright.service.impl;
 
-import org.dromara.common.core.utils.MapstructUtils;
-import org.dromara.common.core.utils.StringUtils;
-import org.dromara.common.mybatis.core.page.TableDataInfo;
-import org.dromara.common.mybatis.core.page.PageQuery;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.dromara.common.core.utils.MapstructUtils;
+import org.dromara.common.core.utils.StringUtils;
+import org.dromara.common.mybatis.core.page.PageQuery;
+import org.dromara.common.mybatis.core.page.TableDataInfo;
+import org.dromara.playwright.domain.ProductInfo;
+import org.dromara.playwright.domain.bo.ProductInfoBo;
+import org.dromara.playwright.domain.vo.ProductInfoVo;
+import org.dromara.playwright.mapper.ProductInfoMapper;
+import org.dromara.playwright.service.IProductInfoService;
 import org.springframework.stereotype.Service;
-import org.dromara.system.domain.bo.ProductInfoBo;
-import org.dromara.system.domain.vo.ProductInfoVo;
-import org.dromara.system.domain.ProductInfo;
-import org.dromara.system.mapper.ProductInfoMapper;
-import org.dromara.system.service.IProductInfoService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Collection;
 
 /**
  * 产品信息Service业务层处理

@@ -366,6 +366,13 @@
                 <version>${revision}</version>
             </dependency>
 
+            <!--  Playwright模块  -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>ruoyi-playwright</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

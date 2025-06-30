@@ -1,16 +1,16 @@
-package org.dromara.system.domain;
+package org.dromara.playwright.domain;
 
-import org.dromara.common.tenant.core.TenantEntity;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.dromara.common.tenant.core.TenantEntity;
 
 import java.io.Serial;
 
 /**
  * 产品信息对象 product_info
  *
- * @author Lion Li
+ * @author Ethan
  * @date 2025-06-30
  */
 @Data
@@ -68,6 +68,5 @@ public class ProductInfo extends TenantEntity {
      */
     @TableLogic
     private Long delFlag;
-
 
 }

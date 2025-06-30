@@ -1,8 +1,8 @@
-package org.dromara.system.mapper;
+package org.dromara.playwright.mapper;
 
-import org.dromara.system.domain.ProductInfo;
-import org.dromara.system.domain.vo.ProductInfoVo;
 import org.dromara.common.mybatis.core.mapper.BaseMapperPlus;
+import org.dromara.playwright.domain.ProductInfo;
+import org.dromara.playwright.domain.vo.ProductInfoVo;
 
 /**
  * 产品信息Mapper接口
