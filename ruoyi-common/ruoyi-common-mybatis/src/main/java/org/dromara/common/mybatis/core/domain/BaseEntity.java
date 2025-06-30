@@ -33,13 +33,13 @@ public class BaseEntity implements Serializable {
     /**
      * 创建部门
      */
-    @TableField(fill = FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT, exist = false)
     private Long createDept;
 
     /**
      * 创建者
      */
-    @TableField(fill = FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT, exist = false)
     private Long createBy;
 
     /**
@@ -51,7 +51,7 @@ public class BaseEntity implements Serializable {
     /**
      * 更新者
      */
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE, exist = false)
     private Long updateBy;
 
     /**

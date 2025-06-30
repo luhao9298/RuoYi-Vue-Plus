@@ -103,6 +103,12 @@
             <artifactId>ruoyi-common-websocket</artifactId>
         </dependency>
 
+        <!-- Playwright 爬虫依赖 -->
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
