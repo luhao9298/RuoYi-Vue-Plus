@@ -276,3 +276,17 @@ warm-flow:
     - 255,205,23
     ## 已办理
     - 157,255,0
+
+--- # playwright配置
+playwright:
+  headless: false
+  slowMo: 1000
+  userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  viewport:
+    width: 1512
+    height: 982
+  browserArgs:
+    - --disable-blink-features=AutomationControlled
+    - --disable-web-security
+    - --disable-features=VizDisplayCompositor
+

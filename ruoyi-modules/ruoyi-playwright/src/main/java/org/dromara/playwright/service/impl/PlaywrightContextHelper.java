@@ -4,28 +4,43 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.options.Cookie;
+import lombok.RequiredArgsConstructor;
+import org.dromara.playwright.config.PlaywrightProperties;
+import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
+import java.util.List;
 
+@Component
+@RequiredArgsConstructor
 public class PlaywrightContextHelper {
+    private final PlaywrightProperties properties;
+
     /**
-     * 创建默认的Playwright、Browser、BrowserContext
-     * @return BrowserContextHolder，包含Playwright、Browser、BrowserContext
+     * 创建 Playwright、Browser、BrowserContext，可选注入 cookies
+     * @param cookies 可选 cookies
+     * @return BrowserContextHolder
      */
-    public static BrowserContextHolder createDefaultContext() {
+    public BrowserContextHolder createContext(List<Cookie> cookies) {
         Playwright playwright = Playwright.create();
         Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
-                .setHeadless(false)
-                .setSlowMo(1000)
-                .setArgs(Arrays.asList(
-                        "--disable-blink-features=AutomationControlled",
-                        "--disable-web-security",
-                        "--disable-features=VizDisplayCompositor"
-                )));
+                .setHeadless(properties.isHeadless())
+                .setSlowMo((double) properties.getSlowMo())
+                .setArgs(properties.getBrowserArgs()));
         BrowserContext context = browser.newContext(new Browser.NewContextOptions()
-                .setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-                .setViewportSize(1512, 982));
+                .setUserAgent(properties.getUserAgent())
+                .setViewportSize(properties.getViewport().getWidth(), properties.getViewport().getHeight()));
+        if (cookies != null && !cookies.isEmpty()) {
+            context.addCookies(cookies);
+        }
         return new BrowserContextHolder(playwright, browser, context);
+    }
+
+    /**
+     * 无 cookies 创建 context
+     */
+    public BrowserContextHolder createContext() {
+        return createContext(null);
     }
 
     /**

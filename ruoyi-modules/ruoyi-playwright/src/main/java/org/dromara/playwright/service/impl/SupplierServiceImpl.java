@@ -145,7 +145,8 @@ public class SupplierServiceImpl implements ISupplierService {
         }
         SupplierLoginStrategy loginStrategy = strategyRegistry.getLoginStrategy(supplier.getName());
         SupplierProductCrawlerStrategy crawlerStrategy = strategyRegistry.getCrawlerStrategy(supplier.getName());
-        var session = loginStrategy.login(supplier);
-        crawlerStrategy.crawlAndSaveProducts(supplier, session);
+        try (var holder = loginStrategy.loginAndGetContext(supplier)) {
+            crawlerStrategy.crawlAndSaveProducts(supplier, holder);
+        }
     }
 }
