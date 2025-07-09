@@ -13,12 +13,17 @@ import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RequiredArgsConstructor
 @Component
+@RequiredArgsConstructor
 public class OnshopfrontProductCrawlerStrategy implements SupplierProductCrawlerStrategy {
 
     private final ProductInfoMapper productInfoMapper;
     private final PlaywrightContextHelper playwrightContextHelper;
+
+    @Override
+    public boolean supports(String supplierName) {
+        return StrUtil.equalsIgnoreCase("onshopfront", supplierName);
+    }
 
     @Override
     public void crawlAndSaveProducts(Supplier supplier, PlaywrightContextHelper.BrowserContextHolder holder) {
@@ -26,11 +31,6 @@ public class OnshopfrontProductCrawlerStrategy implements SupplierProductCrawler
         if (CollUtil.isNotEmpty(productList)) {
             productInfoMapper.insertOrUpdateBatch(productList);
         }
-    }
-
-    @Override
-    public boolean supports(String supplierName) {
-        return StrUtil.equalsIgnoreCase("onshopfront", supplierName);
     }
 
     private List<ProductInfo> fetchProductsFromOnshopfront(Supplier supplier, PlaywrightContextHelper.BrowserContextHolder holder) {
